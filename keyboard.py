@@ -49,12 +49,15 @@ while True:
             if x<lmlist[8][0]<x+w and y<lmlist[8][1]<y+h:
                 cv2.rectangle(img,button.pos,(x+w,y+h),(155,0,200),cv2.FILLED)
                 cv2.putText(img,button.text,(x+20,y+65),cv2.FONT_HERSHEY_PLAIN,4,(255,255,255),4)
-            l,_,_=detector.findDistance(8,12,img)   
+                l,_,_=detector.findDistance(8,12,img)   
+                print(l)
 
-            if l<30:  
-                 cv2.rectangle(img,button.pos,(x+w,y+h),(255,0,0),cv2.FILLED)
-                 cv2.putText(img,button.text,(x+20,y+65),cv2.FONT_HERSHEY_PLAIN,4,(255,255,255),4)  
-                 finalText+=button.text            
+                if l< 45:
+                    cv2.rectangle(img,button.pos,(x+w,y+h),(255,0,0),cv2.FILLED)           
+                    cv2.putText(img,button.text,(x+20,y+65),cv2.FONT_HERSHEY_PLAIN,4,(255,255,255),4)  
+                    finalText+=button.text  
+             
+                           
     
 
     cv2.rectangle(img,(50,350),(700,450),(255,255,255),cv2.FILLED)
